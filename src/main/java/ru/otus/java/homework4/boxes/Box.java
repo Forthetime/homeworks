@@ -1,23 +1,23 @@
 package ru.otus.java.homework4.boxes;
 
 public class Box {
-    private int lengthBox;
+    private int length;
     private int width;
-    private int hight;
+    private int height;
     private String colour;
     private boolean isOpened;
     private boolean isEmptyBox;
 
-    public int getLengthBox() {
-        return lengthBox;
+    public int getLength() {
+        return length;
     }
 
     public int getWidth() {
         return width;
     }
 
-    public int getHight() {
-        return hight;
+    public int getHeight() {
+        return height;
     }
 
     public String getColour() {
@@ -32,22 +32,14 @@ public class Box {
         return isOpened;
     }
 
-    public void setIsOpened(boolean isOpened) {
-        this.isOpened = isOpened;
-    }
-
     public boolean getIsEmptyBox() {
         return isEmptyBox;
     }
 
-    public void setIsEmptyBox(boolean isEmptyBox) {
-        this.isEmptyBox = isEmptyBox;
-    }
-
-    public Box(int lengthBox, int width, int hight, String colour, boolean isOpened, boolean isEmptyBox) {
-        this.lengthBox = lengthBox;
+    public Box(int length, int width, int hight, String colour, boolean isOpened, boolean isEmptyBox) {
+        this.length = length;
         this.width = width;
-        this.hight = hight;
+        this.height = height;
         this.colour = colour;
         this.isOpened = isOpened;
         this.isEmptyBox = isEmptyBox;
@@ -56,7 +48,7 @@ public class Box {
     public void open() {
         System.out.println("Открыть коробку");
         if (isOpened == false) {
-            setIsOpened(true);
+            isOpened=true;
             System.out.println("Коробка открыта");
         } else {
             System.out.println("Коробка уже была открыта");
@@ -66,7 +58,7 @@ public class Box {
     public void close() {
         System.out.println("Закрыть коробку");
         if (isOpened == true) {
-            setIsOpened(false);
+            isOpened=false;
             System.out.println("Коробка закрыта");
         } else {
             System.out.println("Коробка уже была закрыта");
@@ -76,7 +68,7 @@ public class Box {
     public void putIntoBox() {
         System.out.println("Сложить предмет в коробку");
         if (isOpened == true && isEmptyBox == true) {
-            setIsEmptyBox(false);
+            isEmptyBox=false;
             System.out.println("В коробку сложен предмет");
         }
         if (isOpened == true && isEmptyBox == false) {
@@ -93,7 +85,7 @@ public class Box {
     public void takeFromBox() {
         System.out.println("Убрать предмет из коробки");
         if (isOpened == true && isEmptyBox == false) {
-            setIsEmptyBox(false);
+            isEmptyBox=false;
             System.out.println("Из коробки убран предмет");
         }
         if (isOpened == true && isEmptyBox == true) {
@@ -109,7 +101,7 @@ public class Box {
 
     @Override
     public String toString() {
-        return "Размеры: длина " + this.lengthBox + "," + " ширина " + this.width + "," + " высота " + this.hight + " Цвет: " + this.colour + " Коробка открыта? - " + this.isOpened + " Коробка пустая? - " + this.isEmptyBox;
+        return "Размеры: длина " + this.length + "," + " ширина " + this.width + "," + " высота " + this.height + " Цвет: " + this.colour + " Коробка открыта? - " + this.isOpened + " Коробка пустая? - " + this.isEmptyBox;
     }
 }
 
