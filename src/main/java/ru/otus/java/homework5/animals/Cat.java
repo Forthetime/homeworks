@@ -1,4 +1,4 @@
-package ru.otus.java.homework5;
+package ru.otus.java.homework5.animals;
 
 public class Cat extends Animal {
 

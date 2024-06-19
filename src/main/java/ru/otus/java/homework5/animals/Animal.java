@@ -1,4 +1,4 @@
-package ru.otus.java.homework5;
+package ru.otus.java.homework5.animals;
 
 public abstract class Animal {
     String name;
@@ -46,16 +46,21 @@ public abstract class Animal {
     }
 
     public double run(int distance) {
-        double time = distance / speedRun;
-        System.out.println(name + " пробежал " + distance + " м" + " за " + time + " сек");
-        endurance = endurance - distance;
         if (endurance > 0) {
-            System.out.println("У " + name + " осталась выносливость: " + endurance);
+            double time = distance / speedRun;
+            System.out.println(name + " пробежал " + distance + " м" + " за " + time + " сек");
+            endurance = endurance - distance;
+            if (endurance > 0) {
+                System.out.println("У " + name + " осталась выносливость: " + endurance);
+            } else {
+                System.out.println("У " + name + " появилось состояние усталости");
+            }
+            return time;
         } else {
-            System.out.println("У " + name + " появилось состояние усталости");
-
+            double time;
+            System.out.println(name + " не может бежать, у " + name + " не хватает выносливовсти");
+            return time = -1;
         }
-        return time;
     }
 
     public abstract double swim(int distance);
@@ -64,7 +69,7 @@ public abstract class Animal {
         if (endurance > 0) {
             System.out.println("Имя:" + name + " Скорость бега м/с " + speedRun + " Скорость плавания м/с " + speedSwim + " Выносливость " + endurance);
         } else {
-            System.out.println("Имя:" + name + " Скорость бега м/с " + speedRun + " Скорость плавания м/с " + speedSwim + " Выносливость ирасходована");
+            System.out.println("Имя:" + name + " Скорость бега м/с " + speedRun + " Скорость плавания м/с " + speedSwim + " Выносливость израсходована");
         }
     }
 }
