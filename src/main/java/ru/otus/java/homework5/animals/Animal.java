@@ -46,23 +46,20 @@ public abstract class Animal {
     }
 
     public double run(int distance) {
-        if (endurance > 0) {
-            double time = distance / speedRun;
-            System.out.println(name + " пробежал " + distance + " м" + " за " + time + " сек");
-            endurance = endurance - distance;
-            if (endurance > 0) {
-                System.out.println("У " + name + " осталась выносливость: " + endurance);
-            } else {
-                System.out.println("У " + name + " появилось состояние усталости");
-            }
-            return time;
-        } else {
-            double time;
-            System.out.println(name + " не может бежать, у " + name + " не хватает выносливовсти");
-            return time = -1;
+        if (endurance <= 0) {
+            System.out.println(name + " не может бежать, у " + name + " не хватает выносливости");
+            return -1;
         }
+        double time = distance / speedRun;
+        System.out.println(name + " пробежал " + distance + " м" + " за " + time + " сек");
+        endurance -= distance ;
+        if (endurance > 0) {
+            System.out.println("У " + name + " осталась выносливость: " + endurance);
+        } else {
+            System.out.println("У " + name + " появилось состояние усталости");
+        }
+        return time;
     }
-
     public abstract double swim(int distance);
 
     public void info() {
