@@ -19,13 +19,11 @@ public class Plate {
 
     public int addAmount(int amountAdd) {
         System.out.println("Добавляем в тарелку " + amountAdd + " у.е. еды");
-        if ((currentAmount + amountAdd) > maxAmount) {
-            System.out.println("Невозожно добавить еду, после добавления в тарелке окажется еды больше, чем max значение " + maxAmount);
+        if (currentAmount == maxAmount) {
+            System.out.println("Тарелка итак полная");
         } else {
-            System.out.println("current " + currentAmount);
             currentAmount += amountAdd;
             System.out.println("В тарелке стало " + currentAmount + " еды");
-
         }
         return currentAmount;
     }
@@ -34,8 +32,8 @@ public class Plate {
         if (currentAmount - amountTake < 0) {
             System.out.println("В тарелке недостачно еды: " + currentAmount);
             return false;
-        } else
-            currentAmount -= amountTake;
+        }
+        currentAmount -= amountTake;
         System.out.println("В тарелке осталось " + currentAmount + " еды");
         return true;
     }

@@ -8,7 +8,7 @@ public class Cat {
     public Cat(String name, int amountTake) {
         this.name = name;
         this.amountTake = amountTake;
-        this.satiety = false;
+//        this.satiety = false;
     }
 
     public String getName() {
@@ -34,7 +34,7 @@ public class Cat {
             satiety = true;
 
         } else {
-            System.out.println(name + " не поел " + amountTake + " у.е., т.к. еды для него мало");
+            System.out.println(name + " не смог поесть, т.к. еды для него мало");
         }
         return plate.getCurrentAmount();
     }
