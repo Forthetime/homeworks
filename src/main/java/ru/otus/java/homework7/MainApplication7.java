@@ -10,19 +10,17 @@ public class MainApplication7 {
         OffRoader offRoader = new OffRoader("вездеход Cat", 12, 3);
         Horse horse = new Horse("лошадь Звездочка", 30, 20);
 
-        CurrentArea currentArea = new CurrentArea(SWAMP);
 
         human.getIn(car);
-        human.move(2, currentArea);
-        human.getOff(car);
-        human.getOff(horse);
+        human.move(2, SWAMP);
+        human.getOff();
+        human.getOff();
         human.getIn(offRoader);
-        human.move(1, currentArea);
-        human.getOff(cycle);
-        human.move(3, currentArea);
-        CurrentArea currentArea2 = new CurrentArea(FOREST);
+        human.move(1, SWAMP);
+        human.getOff();
+        human.move(3, SWAMP);
         human.getIn(horse);
-        human.move(1, currentArea2);
+        human.move(1, FOREST);
     }
 }
 

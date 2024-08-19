@@ -36,21 +36,18 @@ public class OffRoader implements Transport {
     }
 
     @Override
-    public boolean drive(int distance,CurrentArea currentArea, Transport transport) {
-            System.out.println("Вездеход может передвигаться по местности" + currentArea);
-            if (fuelOffRoaderLevel <= 0 || fuelOffRoaderLevel<distance * fuelOffRoaderСonsumption) {
-                System.out.println(" ,но недостаточно бензина ");
-                return false;
-            }
-            else {
-                System.out.println("Используя " + transport.getName() + " проехал " + distance + " км");
-                fuelOffRoaderLevel -= distance * fuelOffRoaderСonsumption;
-                if (fuelOffRoaderLevel > 0) {
-                    System.out.println("После поездки осталось бензина " + fuelOffRoaderLevel + " литров");
-                } else {
-                    System.out.println("После поездки не осталось бензина");
-                }
-            }
-            return true;
+    public boolean drive(int distance, Area area) {
+        System.out.println("Вездеход может передвигаться по местности" + area);
+        if (fuelOffRoaderLevel <= 0 || fuelOffRoaderLevel < distance * fuelOffRoaderСonsumption) {
+            System.out.println(" ,но недостаточно бензина ");
+            return false;
         }
+        System.out.println("Используя внедорожник, проехал " + distance + " км");
+        fuelOffRoaderLevel -= distance * fuelOffRoaderСonsumption;
+        if (fuelOffRoaderLevel > 0) {
+            System.out.println("После поездки осталось бензина " + fuelOffRoaderLevel + " литров");
+        }
+        System.out.println("После поездки не осталось бензина");
+        return true;
     }
+}

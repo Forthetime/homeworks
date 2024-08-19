@@ -36,28 +36,27 @@ public class Car implements Transport {
     }
 
     @Override
-    public boolean drive(int distance,CurrentArea currentArea, Transport transport) {
-        if (currentArea.getCurrentArea()== Area.FOREST || currentArea.getCurrentArea()== Area.SWAMP) {
-            System.out.println("Машина не может передвигаться по местности" + currentArea);
+    public boolean drive(int distance, Area area) {
+        if (area == Area.FOREST || area == Area.SWAMP) {
+            System.out.println("Машина не может передвигаться по местности" + area);
             return false;
-        } else {
-            System.out.println("Машина может передвигаться по местности" + currentArea);
-            if (fuelCarLevel <= 0 || fuelCarLevel<distance * fuelCarСonsumption) {
-                System.out.println(" ,но недостаточно бензина ");
-                return false;
-            }
-            else {
-                System.out.println("Используя " + getName() + " проехал " + distance + " км");
-                fuelCarLevel -= distance * fuelCarСonsumption;
-                if (fuelCarLevel > 0) {
-                    System.out.println("После поездки осталось бензина " + fuelCarLevel + " литров");
-                } else {
-                    System.out.println("После поездки не осталось бензина");
-                }
-            }
-            return true;
         }
+        System.out.println("Машина может передвигаться по местности" + area);
+        if (fuelCarLevel <= 0 || fuelCarLevel < distance * fuelCarСonsumption) {
+            System.out.println(" ,но недостаточно бензина ");
+            return false;
+        }
+        System.out.println("Используя " + getName() + " проехал " + distance + " км");
+        fuelCarLevel -= distance * fuelCarСonsumption;
+        if (fuelCarLevel > 0) {
+            System.out.println("После поездки осталось бензина " + fuelCarLevel + " литров");
+        } else {
+            System.out.println("После поездки не осталось бензина");
+        }
+        return true;
     }
 }
+
+
 
 

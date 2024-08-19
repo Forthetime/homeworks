@@ -36,29 +36,27 @@ public class Human {
     public boolean getIn(Transport transport) {
         if (this.transport == null) {
             this.transport = transport; // присвоить  вид транспорта
-            System.out.println(name + " сел в транспорт " +transport.getName());
+            System.out.println(name + " сел в транспорт " + transport.getName());
             return true;
-        } else System.out.println(name + " едет в другом транспорте");
+        }
+        System.out.println(name + " едет в другом транспорте");
         return false;
     }
 
-    public void getOff(Transport transport) {
+    public void getOff() {
         if (this.transport == null) {
             System.out.println(name + " итак не на транспорте");
         }
-        if (this.transport != null) {
-            this.transport = null;
-            System.out.println(name + " вышел из транспорта");
-        }
+        this.transport = null;
+        System.out.println(name + " вышел из транспорта");
     }
 
-    public boolean move(int distance, CurrentArea currentArea) {
+    public boolean move(int distance, Area area) {
         if (this.transport == null) {
             System.out.println("Человек не на транспорте, прошел пешком " + distance + " км");
             return false;
         }
-        if (this.transport == transport) {
-                  transport.drive(distance,currentArea,transport);        }
+        transport.drive(distance, area);
         return true;
     }
 }
