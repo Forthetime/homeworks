@@ -50,9 +50,8 @@ public class Car implements Transport {
         fuelCarLevel -= distance * fuelCarСonsumption;
         if (fuelCarLevel > 0) {
             System.out.println("После поездки осталось бензина " + fuelCarLevel + " литров");
-        } else {
-            System.out.println("После поездки не осталось бензина");
         }
+        System.out.println("После поездки не осталось бензина");
         return true;
     }
 }
