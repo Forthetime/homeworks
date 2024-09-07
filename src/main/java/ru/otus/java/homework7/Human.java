@@ -43,22 +43,23 @@ public class Human {
         return false;
     }
 
-    public void getOff() {
+    public boolean getOff() {
         if (this.transport == null) {
             System.out.println(name + " итак не на транспорте");
+            return false;
         }
         this.transport = null;
         System.out.println(name + " вышел из транспорта");
+        return true;
     }
 
     public boolean move(int distance, Area area) {
         if (this.transport == null) {
             System.out.println("Человек не на транспорте, прошел пешком " + distance + " км");
-            return false;
+            return true;
         }
-        transport.drive(distance, area);
-        return true;
-    }
+        return transport.drive(distance, area);
+   }
 }
 
 
