@@ -62,22 +62,24 @@ public class MainApplication9 {
     }
 
 
-    private static void getNameEmployees(List<Employee> employees) {
+    private static List<String> getNameEmployees(List<Employee> employees) {
         List<String> employeeNames = new ArrayList<>();
         for (Employee name : employees) {
             employeeNames.add(name.getName());
         }
         System.out.println(employeeNames);
+        return employeeNames;
     }
 
-    private static void getEmployeesElderThanMinAge(int minAge, List<Employee> employees) {
-        List<Employee> EmployeesElderThanMinAge = new ArrayList<>();
+    private static List<Employee> getEmployeesElderThanMinAge(int minAge, List<Employee> employees) {
+        List<Employee> employeesElderThanMinAge = new ArrayList<>();
         for (Employee age : employees) {
             if (age.getAge() >= minAge) {
-                EmployeesElderThanMinAge.add(age);
+                employeesElderThanMinAge.add(age);
             }
         }
-        System.out.println(EmployeesElderThanMinAge);
+        System.out.println(employeesElderThanMinAge);
+        return employeesElderThanMinAge;
     }
 
     private static boolean checkEmployeesAverageAge(int minAvarageAge, List<Employee> employees) {
@@ -93,15 +95,14 @@ public class MainApplication9 {
         return true;
     }
 
-    private static void findTheYoungestEmploee(List<Employee> employees) {
-        List<Employee> TheYoungestEmploees = new ArrayList<>();
-        int minAge = 100;
-        for (Employee age : employees) {
-            if (age.getAge() <= minAge) {
-                minAge = age.getAge();
-                TheYoungestEmploees.add(age);
+    private static Employee findTheYoungestEmploee(List<Employee> employees) {
+        Employee youngest = null;
+        for (Employee employee : employees) {
+            if (youngest == null || employee.getAge() <= youngest.getAge()) {
+                youngest = employee;
+                System.out.println(youngest);
             }
         }
-        System.out.println(TheYoungestEmploees);
+        return youngest;
     }
 }
