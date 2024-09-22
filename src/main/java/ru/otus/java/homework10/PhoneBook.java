@@ -3,7 +3,7 @@ package ru.otus.java.homework10;
 import java.util.*;
 
 public class PhoneBook {
-    Map<String, ArrayList<String>> namesAndPhones = new HashMap<>();
+    Map<String, List<String>> namesAndPhones = new HashMap<>();
 
     @Override
     public String toString() {
@@ -12,7 +12,7 @@ public class PhoneBook {
                 '}';
     }
 
-    public Map<String, ArrayList<String>> add(String name, String phone) {
+    public Map<String, List<String>> add(String name, String phone) {
         if (namesAndPhones.containsKey(name)) {
             namesAndPhones.get(name).add(phone);
         } else {
@@ -24,19 +24,20 @@ public class PhoneBook {
         return namesAndPhones;
     }
 
-    public Map<String, ArrayList<String>> find(String name) {
-        if (namesAndPhones.containsKey(name)) {
-            namesAndPhones.get(name);
-            System.out.println(namesAndPhones.get(name));
+    public List<String> find(String name) {
+        List<String> phones = namesAndPhones.get(name);
+        if (phones != null) {
+            System.out.println(phones);
+            return phones;
         } else {
-            System.out.println("name " + "не найдено");
+            System.out.println("Имя " + name + " не найдено");
+            return Collections.emptyList();
         }
-        return namesAndPhones;
     }
 
     public void containsPhoneNumber(String phone) {
         boolean notContainsPhoneNumber = true;
-        for (ArrayList<String> listOfPhones : namesAndPhones.values()) {
+        for (List<String> listOfPhones : namesAndPhones.values()) {
             if (listOfPhones.contains(phone)) {
                 notContainsPhoneNumber = false;
                 System.out.println("Телефон " + phone + " есть в справочнике");
