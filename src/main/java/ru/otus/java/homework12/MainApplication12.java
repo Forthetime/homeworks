@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class MainApplication12 {
     public static void main(String[] args) {
 
-        File file = new File("D:\\Ира\\Java\\Идея\\homeworks");
+        File file = new File(".");
         for (File f : file.listFiles()) {
             if (f.getName().endsWith("txt")) {
                 System.out.println(f.getName());
