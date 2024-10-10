@@ -17,8 +17,7 @@ public class MainApplication14 {
 
     private static void fillArrayThread(double[] array) {
         long time1 = System.currentTimeMillis();
-        Thread[] myThreads;
-        myThreads = new Thread[4];
+        Thread[] myThreads = new Thread[4];
         myThreads[0] = new Thread(() -> {
             for (int i = 0; i < array.length / 4; i++) {
                 array[i] = 1.14 * Math.cos(i) * Math.sin(i * 0.2) * Math.cos(i / 1.2);
