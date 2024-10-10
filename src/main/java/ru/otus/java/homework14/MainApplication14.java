@@ -49,7 +49,8 @@ public class MainApplication14 {
             try {
                 myThreads[j].join();
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                Thread.currentThread().interrupt();
+                System.err.println("Thread interrupted");
             }
         }
         System.out.println(System.currentTimeMillis() - time1);
