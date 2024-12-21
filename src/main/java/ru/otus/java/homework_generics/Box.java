@@ -5,21 +5,12 @@ import java.util.List;
 
 public class Box<T extends Fruit> {
     private List<T> grocery = new ArrayList<>();
-    private float weightOfBox;
 
     public Box(List<T> grocery) {
         this.grocery = grocery;
     }
 
     public Box() {
-    }
-
-    public float getWeightOfBox() {
-        return weightOfBox;
-    }
-
-    public void setWeightOfBox(float weightOfBox) {
-        this.weightOfBox = weightOfBox;
     }
 
     @Override
@@ -35,7 +26,7 @@ public class Box<T extends Fruit> {
     }
 
     public float calculateWeight() {
-        float weightOfBox=0;
+        float weightOfBox = 0;
         for (Fruit o : grocery) {
             weightOfBox += o.getWeight();
         }
@@ -44,7 +35,7 @@ public class Box<T extends Fruit> {
     }
 
     public boolean compareWeightOfBoxes(Box boxAnother) {
-        if (this.calculateWeight() == boxAnother.calculateWeight()) {
+        if (Math.abs(this.calculateWeight() - boxAnother.calculateWeight())<0.0001){
             System.out.println("вес коробок равен");
             return true;
         }
@@ -53,10 +44,15 @@ public class Box<T extends Fruit> {
     }
 
     public void poar(Box<? extends T> boxFromWhichTake) {  //boxFromWhichTake коробка, из которой пересыпаем
-        this.grocery.addAll(boxFromWhichTake.grocery);
-        boxFromWhichTake.grocery.clear();
-        System.out.println("Коробка, в которую пересыпали:"+this);
-        System.out.println("Коробка, из которой пересыпаем:"+boxFromWhichTake);
+        if (this != boxFromWhichTake) {
+            this.grocery.addAll(boxFromWhichTake.grocery);
+            boxFromWhichTake.grocery.clear();
+            System.out.println("Коробка, в которую пересыпали:" + this);
+            System.out.println("Коробка, из которой пересыпаем:" + boxFromWhichTake);
+        } else {
+            System.out.println("Коробка, в которую пересыпаем фрукты, не может совпадать с коробкой, из кооторой пересыпаем");
+        }
+
     }
 }
 

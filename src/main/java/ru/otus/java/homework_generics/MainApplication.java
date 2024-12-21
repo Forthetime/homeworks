@@ -19,7 +19,7 @@ public class MainApplication {
         appleBox1.calculateWeight();
         mixBox1.calculateWeight();
         orangeBox1.compareWeightOfBoxes(mixBox1);
-        mixBox1.poar(appleBox1);
+        mixBox1.poar(mixBox1);
         mixBox1.calculateWeight();
         mixBox1.calculateWeight();
     }
