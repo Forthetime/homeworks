@@ -16,7 +16,7 @@ public class MainApplicationIO2 {
             FileReader filereader = new FileReader(text);
             BufferedReader bufferedReader = new BufferedReader(filereader);
             String line;
-            System.out.print("\nВведите строку, которую Вы хотетите добавить в файл\n");
+            System.out.print("\nВведите последовательность, которую Вы хотите найти\n");
             String chosenLine = scanner.nextLine();
             int wordCount = 0;
             while ((line = bufferedReader.readLine()) != null) {
