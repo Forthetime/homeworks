@@ -3,11 +3,6 @@ package ru.otus.java.homework_testing;
 public class MainApplication {
 
     public static void main(String[] args) {
-//        int[] arr = {1, 2, 1, 1,2,2,2,2,2};
-//        int[] arr2 = returnArrayAfterOne(arr);
-//        System.out.println(Arrays.toString(arr2));
-//        boolean result = consistOfOneAndTwo(arr);
-//        System.out.println("result = " + result);
     }
 
     public static int[] returnArrayAfterOne(int... arr) {
